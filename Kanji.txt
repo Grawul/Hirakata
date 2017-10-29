@@ -1,0 +1,80 @@
+﻿一 	イチ 	ichi 	ひとつ 	hitotsu 	yī 	eins
+二 	ニ 	ni 	ふたつ 	futatsu 	èr 	zwei
+三 	サン 	san 	みっつ 	mittsu 		sān 	drei
+四 	シ 	shi 	よっつ 	yottsu 		sì 	vier
+五 	ゴ 	go 	いつつ 	itsutsu 	wǔ 	fünf
+六 	ロク 	roku 	むっつ 	muttsu 		liù 	sechs
+七 	シチ 	shichi 	ななつ 	nanatsu 	qī 	sieben
+八 	ハチ 	hachi 	やっつ 	yattsu 		bā 	acht
+九 	ク 	ku 	ここのつ 	kokonotsu 	jiǔ 	neun
+十 	ヂュウ 	juu 	とお 	too 		shí 	zehn
+百 	ヒャク 	hyaku 	もも 	momo 		bǎi 	hundert
+千 	セン 	sen 	ち 	chi 		qiān 	tausend
+本 	ホン 	hon 	もと 	moto 		běn 	hon: Buch moto: Grund/Boden
+日 	ニチ 	nichi 	ひ 	hi 		rì 	Sonne,Tag
+月 	ゲツ 	getsu 	つき 	tsuki 		yuè 	Mond, Monat
+火 	カ 	ka 	ひ 	hi 		huǒ 	Feuer
+水 	スイ 	sui 	みず 	mizu 		shuǐ 	Wasser
+木 	モク 	moku 	き 	ki 		mù 	Holz, Baum
+金 	キン 	kin 	かね 	kane 		jìn 	Metall, Gold
+土 	ド 	do 	つち 	tsuchi 		dǔ 	Erde
+年 	ネン 	nen 	とし 	toshi 		nián 	Jahr
+円 	エン 	en 	まるい 	marui 		yuán 	Yen
+人 	ニン 	nin 	ひと 	hito 		rén 	Mensch
+入 	ニュウ 	nyuu 	いれる 	ireru 		rù 	hinein(-gehen,-tun)
+力 	リョク 	ryoku 	ちから 	chikara 	lì 	Kraft
+中 	チュウ 	chuu 	なか 	naka 		zhōng 	Mitte, in
+上 	ジョウ 	joo 	うえ 	ue 		shàng 	oben
+下 	カ 	ka 	した 	shita 		xià 	unten
+大 	ダイ 	dai 	おおきい 	ookii 		dà 	groß
+小 	ショウ 	shoo 	ちいさい 	chiisai 	xiǎo 	klein
+川 	セン 	sen 	かわ 	kawa 		chuān 	Fluss
+山 	サン 	san 	やま 	yama 		shān 	Berg
+口 	コウ 	koo 	くち 	kuchi 		kǒu 	Mund, Mündung
+子 	シ 	shi 	こ 	ko 		zǐ 	Kind
+女 	ジョ 	jo 	おんな 	onna 		nǚ 	Frau
+林 	リン 	rin 	はやし 	hayashi 	lín 	Wald
+学 	ガク 	gaku 	まなぶ 	manabu 		xüé 	lernen
+先 	セン 	sen 	さき 	saki 		xiān 	vorher
+生 	セイ 	sei 	いきる 	ikiru 		shēng 	leben
+休 	キュウ 	kyuu 	やすむ 	yasumu 		xiū 	ausruhen
+校 	コウ 	koo 	くらべる 	kuraberu 	xiào 	vergleichen
+森 	シン 	shin 	もり 	mori 		sēn 	Wald
+白 	ハク 	haku 	しろい 	shiroi 		bái 	weiß
+出 	シュツ 	shutsu 	でる 	deru 		chū 	hinaus(gehen)
+正 	セイ 	sei 	ただしい 	tadashii 	zhèng 	richtig
+気 	キ 	ki 	おき 	(oki) 		qì 	Luft,Geist
+天 	テン 	ten 	あめ 	ame 		tiān 	Himmel
+字 	ジ 	ji 	あざ 	aza 		zì 	ji: Zeichen, aza:Ortschaft
+文 	ブン 	bun 	ふみ 	fumi 		wén 	bun:Schrift, fumi:Brief
+田 	デン 	den 	た 	ta 		tián 	Feld
+耳 	ジ 	ji 	みみ 	mimi 		ěr 	Ohr
+足 	ソク 	soku 	あし 	ashi 		zú 	Fuß, Bein
+手 	シュ 	shu 	て 	te 		shŏu 	Hand
+目 	モク 	moku 	め 	me 		mù 	Auge
+立 	リツ 	ritsu 	たつ 	tatsu 		lì 	stehen
+見 	ケン 	ken 	みる 	miru 		jiàn 	sehen
+音 	オン 	on 	おと 	oto 		yīn 	Laut,Klang
+犬 	ケン 	ken 	いぬ 	inu 		quăn 	Hund
+虫 	チュウ 	chuu 	むし 	mushi 		chóng 	Insekt
+夕 	セキ 	seki 	ゆう 	yuu 		xī 	Abend
+雨 	ウ 	u 	あめ 	ame 		yŭ 	Regen
+空 	クウ 	kuu 	そら 	sora 		kōng 	Himmel
+糸  丝 	シ 	shi 	いと 	ito 		sī 	Faden
+男 	ダン 	dan 	おとこ 	otoko 		nán 	Mann
+王 	オウ 	ou 	きみ 	kimi 		wáng 	König
+左 	サ 	sa 	ひだり 	hidari 		zuŏ 	links
+右 	ユウ 	yuu 	みぎ 	migi 		yòu 	rechts
+青 	セイ 	sei 	あおい 	aoi 		qīng 	blau
+赤 	セキ 	seki 	あかい 	akai 		chì 	rot
+名 	メイ 	mei 	な 	na 		míng 	Name
+村 	ソン 	son 	むら 	mura 		cūn 	Dorf
+町 	チョウ 	chou 	まち 	machi 		tĭng 	Stadt(viertel),Straße
+貝  贝 	バイ 	bai 	かい 	kai 		bèi 	Muschel
+玉 	ギョク 	gyoku 	たま 	tama 		yù 	Edelstein
+石 	セキ 	seki 	いし 	ishi 		shí 	Stein
+花 	カ 	ka 	はな 	hana 		huā 	Blume
+草 	ソウ 	sou 	くさ 	kusa 		căo 	Gras
+早 	ソウ 	sou 	はやい 	hayai 		zăo 	schnell,früh
+竹 	チク 	chiku 	たけ 	take 		zhú 	Bambus
+車  车 	シャ 	sha 	くるま 	kuruma 		chē 	Wagen

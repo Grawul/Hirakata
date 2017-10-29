@@ -1,0 +1,345 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AFE60127-97E1-4C9D-8481-D9BEDEA5E502}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Hirakata</RootNamespace>
+    <AssemblyName>Hirakata</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\yinyang.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BCL">
+      <HintPath>..\..\BCL\BCL\bin\Debug\BCL.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="BCL\ObservableObject.cs" />
+    <Compile Include="Converter\VisibilityConverterReverse.cs" />
+    <Compile Include="Converter\VisibilityConverter.cs" />
+    <Compile Include="Objects\HighscoreEntry.cs" />
+    <Compile Include="Services\KanaBuilder.cs" />
+    <Compile Include="Services\KanaUris.cs" />
+    <Compile Include="ViewModels\HighscoreViewModel.cs" />
+    <Compile Include="ViewModels\HiraKataViewModel.cs" />
+    <Page Include="Windows\Highscore.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\HiraKataMain.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Windows\Highscore.xaml.cs">
+      <DependentUpon>Highscore.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\HiraKataMain.xaml.cs">
+      <DependentUpon>HiraKataMain.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Objects\Kana.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\correct.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\wrong.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\yinyang.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Trans Katakana\trans kata a.png" />
+    <Resource Include="Resources\Trans Katakana\trans kata chi.png" />
+    <Resource Include="Resources\Trans Katakana\trans kata e.png" />
+    <Resource Include="Resources\Trans Katakana\trans kata fu.png" />
+    <Resource Include="Resources\Trans Katakana\trans kata ha.png" />
+    <Resource Include="Resources\Trans Katakana\trans kata he.png" />
+    <Resource Include="Resources\Trans Katakana\trans kata hi.png" />
+    <Resource Include="Resources\Trans Katakana\trans kata ho.png" />
+    <Resource Include="Resources\Trans Katakana\trans kata i.png" />
+    <Resource Include="Resources\Trans Katakana\trans kata ka.png" />
+    <Resource Include="Resources\Trans Katakana\trans kata ke.png" />
+    <Resource Include="Resources\Trans Katakana\trans kata ki.png" />
+    <Resource Include="Resources\Trans Katakana\trans kata ko.png" />
+    <Resource Include="Resources\Trans Katakana\trans kata ku.png" />
+    <Resource Include="Resources\Trans Katakana\trans kata ma.png" />
+    <Resource Include="Resources\Trans Katakana\trans kata me.png" />
+    <Resource Include="Resources\Trans Katakana\trans kata mi.png" />
+    <Resource Include="Resources\Trans Katakana\trans kata mo.png" />
+    <Resource Include="Resources\Trans Katakana\trans kata mu.png" />
+    <Resource Include="Resources\Trans Katakana\trans kata n.png" />
+    <Resource Include="Resources\Trans Katakana\trans kata na.png" />
+    <Resource Include="Resources\Trans Katakana\trans kata ne.png" />
+    <Resource Include="Resources\Trans Katakana\trans kata ni.png" />
+    <Resource Include="Resources\Trans Katakana\trans kata no.png" />
+    <Resource Include="Resources\Trans Katakana\trans kata nu.png" />
+    <Resource Include="Resources\Trans Katakana\trans kata o.png" />
+    <Resource Include="Resources\Trans Katakana\trans kata ra.png" />
+    <Resource Include="Resources\Trans Katakana\trans kata re.png" />
+    <Resource Include="Resources\Trans Katakana\trans kata ri.png" />
+    <Resource Include="Resources\Trans Katakana\trans kata ro.png" />
+    <Resource Include="Resources\Trans Katakana\trans kata ru.png" />
+    <Resource Include="Resources\Trans Katakana\trans kata sa.png" />
+    <Resource Include="Resources\Trans Katakana\trans kata se.png" />
+    <Resource Include="Resources\Trans Katakana\trans kata shi.png" />
+    <Resource Include="Resources\Trans Katakana\trans kata so.png" />
+    <Resource Include="Resources\Trans Katakana\trans kata su.png" />
+    <Resource Include="Resources\Trans Katakana\trans kata ta.png" />
+    <Resource Include="Resources\Trans Katakana\trans kata te.png" />
+    <Resource Include="Resources\Trans Katakana\trans kata to.png" />
+    <Resource Include="Resources\Trans Katakana\trans kata tsu.png" />
+    <Resource Include="Resources\Trans Katakana\trans kata u.png" />
+    <Resource Include="Resources\Trans Katakana\trans kata wa.png" />
+    <Resource Include="Resources\Trans Katakana\trans kata wo.png" />
+    <Resource Include="Resources\Trans Katakana\trans kata ya.png" />
+    <Resource Include="Resources\Trans Katakana\trans kata yo.png" />
+    <Resource Include="Resources\Trans Katakana\trans kata yu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Trans Hiragana\trans hira a.png" />
+    <Resource Include="Resources\Trans Hiragana\trans hira chi.png" />
+    <Resource Include="Resources\Trans Hiragana\trans hira e.png" />
+    <Resource Include="Resources\Trans Hiragana\trans hira fu.png" />
+    <Resource Include="Resources\Trans Hiragana\trans hira ha.png" />
+    <Resource Include="Resources\Trans Hiragana\trans hira he.png" />
+    <Resource Include="Resources\Trans Hiragana\trans hira hi.png" />
+    <Resource Include="Resources\Trans Hiragana\trans hira i.png" />
+    <Resource Include="Resources\Trans Hiragana\trans hira ka.png" />
+    <Resource Include="Resources\Trans Hiragana\trans hira ke.png" />
+    <Resource Include="Resources\Trans Hiragana\trans hira ki.png" />
+    <Resource Include="Resources\Trans Hiragana\trans hira ko.png" />
+    <Resource Include="Resources\Trans Hiragana\trans hira ku.png" />
+    <Resource Include="Resources\Trans Hiragana\trans hira ma.png" />
+    <Resource Include="Resources\Trans Hiragana\trans hira me.png" />
+    <Resource Include="Resources\Trans Hiragana\trans hira mi.png" />
+    <Resource Include="Resources\Trans Hiragana\trans hira mo.png" />
+    <Resource Include="Resources\Trans Hiragana\trans hira mu.png" />
+    <Resource Include="Resources\Trans Hiragana\trans hira n.png" />
+    <Resource Include="Resources\Trans Hiragana\trans hira na.png" />
+    <Resource Include="Resources\Trans Hiragana\trans hira ne.png" />
+    <Resource Include="Resources\Trans Hiragana\trans hira ni.png" />
+    <Resource Include="Resources\Trans Hiragana\trans hira no.png" />
+    <Resource Include="Resources\Trans Hiragana\trans hira nu.png" />
+    <Resource Include="Resources\Trans Hiragana\trans hira o.png" />
+    <Resource Include="Resources\Trans Hiragana\trans hira ra.png" />
+    <Resource Include="Resources\Trans Hiragana\trans hira re.png" />
+    <Resource Include="Resources\Trans Hiragana\trans hira ri.png" />
+    <Resource Include="Resources\Trans Hiragana\trans hira ro.png" />
+    <Resource Include="Resources\Trans Hiragana\trans hira ru.png" />
+    <Resource Include="Resources\Trans Hiragana\trans hira sa.png" />
+    <Resource Include="Resources\Trans Hiragana\trans hira se.png" />
+    <Resource Include="Resources\Trans Hiragana\trans hira shi.png" />
+    <Resource Include="Resources\Trans Hiragana\trans hira so.png" />
+    <Resource Include="Resources\Trans Hiragana\trans hira ta.png" />
+    <Resource Include="Resources\Trans Hiragana\trans hira to.png" />
+    <Resource Include="Resources\Trans Hiragana\trans hira tsu.png" />
+    <Resource Include="Resources\Trans Hiragana\trans hira u.png" />
+    <Resource Include="Resources\Trans Hiragana\trans hira wa.png" />
+    <Resource Include="Resources\Trans Hiragana\trans hira wo.png" />
+    <Resource Include="Resources\Trans Hiragana\trans hira ya.png" />
+    <Resource Include="Resources\Trans Hiragana\trans hira yo.png" />
+    <Resource Include="Resources\Trans Hiragana\trans hira yu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Trans Only Hiragana\trans only hira a.png" />
+    <Resource Include="Resources\Trans Only Hiragana\trans only hira chi.png" />
+    <Resource Include="Resources\Trans Only Hiragana\trans only hira e.png" />
+    <Resource Include="Resources\Trans Only Hiragana\trans only hira fu.png" />
+    <Resource Include="Resources\Trans Only Hiragana\trans only hira ha.png" />
+    <Resource Include="Resources\Trans Only Hiragana\trans only hira he.png" />
+    <Resource Include="Resources\Trans Only Hiragana\trans only hira hi.png" />
+    <Resource Include="Resources\Trans Only Hiragana\trans only hira i.png" />
+    <Resource Include="Resources\Trans Only Hiragana\trans only hira ka.png" />
+    <Resource Include="Resources\Trans Only Hiragana\trans only hira ke.png" />
+    <Resource Include="Resources\Trans Only Hiragana\trans only hira ki.png" />
+    <Resource Include="Resources\Trans Only Hiragana\trans only hira ko.png" />
+    <Resource Include="Resources\Trans Only Hiragana\trans only hira ku.png" />
+    <Resource Include="Resources\Trans Only Hiragana\trans only hira ma.png" />
+    <Resource Include="Resources\Trans Only Hiragana\trans only hira me.png" />
+    <Resource Include="Resources\Trans Only Hiragana\trans only hira mi.png" />
+    <Resource Include="Resources\Trans Only Hiragana\trans only hira mo.png" />
+    <Resource Include="Resources\Trans Only Hiragana\trans only hira mu.png" />
+    <Resource Include="Resources\Trans Only Hiragana\trans only hira n.png" />
+    <Resource Include="Resources\Trans Only Hiragana\trans only hira na.png" />
+    <Resource Include="Resources\Trans Only Hiragana\trans only hira ne.png" />
+    <Resource Include="Resources\Trans Only Hiragana\trans only hira ni.png" />
+    <Resource Include="Resources\Trans Only Hiragana\trans only hira no.png" />
+    <Resource Include="Resources\Trans Only Hiragana\trans only hira nu.png" />
+    <Resource Include="Resources\Trans Only Hiragana\trans only hira o.png" />
+    <Resource Include="Resources\Trans Only Hiragana\trans only hira ra.png" />
+    <Resource Include="Resources\Trans Only Hiragana\trans only hira re.png" />
+    <Resource Include="Resources\Trans Only Hiragana\trans only hira ri.png" />
+    <Resource Include="Resources\Trans Only Hiragana\trans only hira ro.png" />
+    <Resource Include="Resources\Trans Only Hiragana\trans only hira ru.png" />
+    <Resource Include="Resources\Trans Only Hiragana\trans only hira sa.png" />
+    <Resource Include="Resources\Trans Only Hiragana\trans only hira se.png" />
+    <Resource Include="Resources\Trans Only Hiragana\trans only hira shi.png" />
+    <Resource Include="Resources\Trans Only Hiragana\trans only hira so.png" />
+    <Resource Include="Resources\Trans Only Hiragana\trans only hira ta.png" />
+    <Resource Include="Resources\Trans Only Hiragana\trans only hira to.png" />
+    <Resource Include="Resources\Trans Only Hiragana\trans only hira tsu.png" />
+    <Resource Include="Resources\Trans Only Hiragana\trans only hira u.png" />
+    <Resource Include="Resources\Trans Only Hiragana\trans only hira wa.png" />
+    <Resource Include="Resources\Trans Only Hiragana\trans only hira wo.png" />
+    <Resource Include="Resources\Trans Only Hiragana\trans only hira ya.png" />
+    <Resource Include="Resources\Trans Only Hiragana\trans only hira yo.png" />
+    <Resource Include="Resources\Trans Only Hiragana\trans only hira yu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Trans Only Katakana\trans only kata a.png" />
+    <Resource Include="Resources\Trans Only Katakana\trans only kata chi.png" />
+    <Resource Include="Resources\Trans Only Katakana\trans only kata e.png" />
+    <Resource Include="Resources\Trans Only Katakana\trans only kata fu.png" />
+    <Resource Include="Resources\Trans Only Katakana\trans only kata ha.png" />
+    <Resource Include="Resources\Trans Only Katakana\trans only kata he.png" />
+    <Resource Include="Resources\Trans Only Katakana\trans only kata hi.png" />
+    <Resource Include="Resources\Trans Only Katakana\trans only kata ho.png" />
+    <Resource Include="Resources\Trans Only Katakana\trans only kata i.png" />
+    <Resource Include="Resources\Trans Only Katakana\trans only kata ka.png" />
+    <Resource Include="Resources\Trans Only Katakana\trans only kata ke.png" />
+    <Resource Include="Resources\Trans Only Katakana\trans only kata ki.png" />
+    <Resource Include="Resources\Trans Only Katakana\trans only kata ko.png" />
+    <Resource Include="Resources\Trans Only Katakana\trans only kata ku.png" />
+    <Resource Include="Resources\Trans Only Katakana\trans only kata ma.png" />
+    <Resource Include="Resources\Trans Only Katakana\trans only kata me.png" />
+    <Resource Include="Resources\Trans Only Katakana\trans only kata mi.png" />
+    <Resource Include="Resources\Trans Only Katakana\trans only kata mo.png" />
+    <Resource Include="Resources\Trans Only Katakana\trans only kata mu.png" />
+    <Resource Include="Resources\Trans Only Katakana\trans only kata n.png" />
+    <Resource Include="Resources\Trans Only Katakana\trans only kata na.png" />
+    <Resource Include="Resources\Trans Only Katakana\trans only kata ne.png" />
+    <Resource Include="Resources\Trans Only Katakana\trans only kata ni.png" />
+    <Resource Include="Resources\Trans Only Katakana\trans only kata no.png" />
+    <Resource Include="Resources\Trans Only Katakana\trans only kata nu.png" />
+    <Resource Include="Resources\Trans Only Katakana\trans only kata o.png" />
+    <Resource Include="Resources\Trans Only Katakana\trans only kata ra.png" />
+    <Resource Include="Resources\Trans Only Katakana\trans only kata re.png" />
+    <Resource Include="Resources\Trans Only Katakana\trans only kata ri.png" />
+    <Resource Include="Resources\Trans Only Katakana\trans only kata ro.png" />
+    <Resource Include="Resources\Trans Only Katakana\trans only kata ru.png" />
+    <Resource Include="Resources\Trans Only Katakana\trans only kata sa.png" />
+    <Resource Include="Resources\Trans Only Katakana\trans only kata se.png" />
+    <Resource Include="Resources\Trans Only Katakana\trans only kata shi.png" />
+    <Resource Include="Resources\Trans Only Katakana\trans only kata so.png" />
+    <Resource Include="Resources\Trans Only Katakana\trans only kata su.png" />
+    <Resource Include="Resources\Trans Only Katakana\trans only kata ta.png" />
+    <Resource Include="Resources\Trans Only Katakana\trans only kata te.png" />
+    <Resource Include="Resources\Trans Only Katakana\trans only kata to.png" />
+    <Resource Include="Resources\Trans Only Katakana\trans only kata tsu.png" />
+    <Resource Include="Resources\Trans Only Katakana\trans only kata u.png" />
+    <Resource Include="Resources\Trans Only Katakana\trans only kata wa.png" />
+    <Resource Include="Resources\Trans Only Katakana\trans only kata wo.png" />
+    <Resource Include="Resources\Trans Only Katakana\trans only kata ya.png" />
+    <Resource Include="Resources\Trans Only Katakana\trans only kata yo.png" />
+    <Resource Include="Resources\Trans Only Katakana\trans only kata yu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Trans Only Hiragana\trans only hira ho.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Trans Hiragana\trans hira ho.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\trans dakuten.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\trans handakuten.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Trans Only Hiragana\trans only hira su.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Trans Hiragana\trans hira su.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Trans Hiragana\trans hira te.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Trans Only Hiragana\trans only hira te.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,288 @@
+﻿<Window x:Class="Hirakanji.Windows.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:converter="clr-namespace:Hirakata.Converter;assembly=Hirakata"
+        Title="ひら漢字" 
+        Height="420" 
+        Width="585"
+        ResizeMode="CanMinimize" 
+        WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <Style x:Key="RadioStandard">
+            <Setter Property="Control.VerticalAlignment" Value="Center"/>
+            <Setter Property="Control.HorizontalAlignment" Value="Left"/>
+            <Setter Property="Control.Margin" Value="10,4"/>
+            <Setter Property="Control.FontSize" Value="12"/>
+            <Setter Property="Control.FontWeight" Value="DemiBold"/>
+            <Setter Property="Control.IsTabStop" Value="False"/>
+            <Setter Property="Control.Focusable" Value="False"/>
+        </Style>
+
+        <Style x:Key="ButtonStandard">
+            <Setter Property="Control.VerticalAlignment" Value="Center"/>
+            <Setter Property="Control.HorizontalAlignment" Value="Center"/>
+            <Setter Property="Control.Margin" Value="10"/>
+            <Setter Property="Control.Width" Value="80"/>
+            <Setter Property="Control.Height" Value="27"/>
+            <Setter Property="Control.FontSize" Value="16"/>
+            <Setter Property="Control.FontWeight" Value="DemiBold"/>
+            <Setter Property="Control.IsTabStop" Value="False"/>
+            <Setter Property="Control.Focusable" Value="False"/>
+        </Style>
+
+        <Style x:Key="TextBlockStandard">
+            <Setter Property="Control.VerticalAlignment" Value="Center"/>
+            <Setter Property="Control.HorizontalAlignment" Value="Center"/>
+            <Setter Property="Control.Margin" Value="5"/>
+            <Setter Property="Control.FontSize" Value="14"/>
+            <Setter Property="Control.FontWeight" Value="SemiBold"/>
+        </Style>
+
+
+        <converter:VisibilityConverter x:Key="VisibilityConverter"/>
+        <converter:VisibilityConverterReverse x:Key="VisibilityConverterReverse"/>
+    </Window.Resources>
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <DockPanel Grid.Row="0"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="3">
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="_File" 
+                          Height="22">
+                    <MenuItem Header="_Highscore" Click="OpenHighScore_OnClick"/>
+                    <MenuItem Header="_Save Options as default" Click="SaveOption_OnClick"/>
+                    <Separator/>
+                    <MenuItem Header="_Exit" Click="Exit_OnClick"/>
+                </MenuItem>
+            </Menu>
+        </DockPanel>
+
+
+        <Image Grid.Row="1"
+               Grid.Column="0"
+               Margin="5,40,5,5"
+               Width="48"
+               Height="48" 
+               Stretch="Fill"
+               VerticalAlignment="Top"
+               RenderOptions.BitmapScalingMode="HighQuality"
+               Source="{Binding Path=IconPath, UpdateSourceTrigger=PropertyChanged}">
+        </Image>
+
+        <Image Grid.Row="1"
+               Grid.Column="2"
+               Margin="5,40,5,5"
+               Width="48"
+               Height="48" 
+               Stretch="Fill"
+               VerticalAlignment="Top"
+               RenderOptions.BitmapScalingMode="HighQuality"
+               Source="{Binding Path=IconPath, UpdateSourceTrigger=PropertyChanged}">
+        </Image>
+
+        <TextBlock Grid.Row="1"
+                   Grid.Column="1"
+                   Grid.RowSpan="2"
+                   VerticalAlignment="Bottom"
+                   HorizontalAlignment="Center"
+                   FontSize="100"
+                   Visibility="{Binding Path=IsInvisible, Converter={StaticResource VisibilityConverterReverse}, UpdateSourceTrigger=PropertyChanged}"
+                   Text="{Binding Path=ActiveKanji.KanjiSign, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <TextBlock Grid.Row="3"
+                   Grid.Column="1"
+                   Text="{Binding Path=ActiveKanji.German, UpdateSourceTrigger=PropertyChanged, StringFormat=German: {0}}"
+                   Visibility="{Binding Path=IsKanaShown, Converter={StaticResource VisibilityConverter}, UpdateSourceTrigger=PropertyChanged}"
+                   Style="{StaticResource TextBlockStandard}">
+        </TextBlock>
+
+        <TextBlock Grid.Row="3"
+                   Grid.Column="1"
+                   Text="{Binding Path=ActiveKanji.German, UpdateSourceTrigger=PropertyChanged, StringFormat=German: {0}}"
+                   Visibility="{Binding Path=IsRomajiShown, Converter={StaticResource VisibilityConverter}, UpdateSourceTrigger=PropertyChanged}"
+                   Style="{StaticResource TextBlockStandard}">
+        </TextBlock>
+
+        <TextBlock Grid.Row="4"
+                   Grid.Column="1"
+                   Text="{Binding Path=ActiveKanji.OnKata, UpdateSourceTrigger=PropertyChanged, StringFormat=On: {0}}"
+                   Visibility="{Binding Path=IsKanaShown, Converter={StaticResource VisibilityConverter}, UpdateSourceTrigger=PropertyChanged}"
+                   Style="{StaticResource TextBlockStandard}">
+        </TextBlock>
+
+        <TextBlock Grid.Row="4"
+                   Grid.Column="1"
+                   Text="{Binding Path=ActiveKanji.OnRomaji, UpdateSourceTrigger=PropertyChanged, StringFormat=On: {0}}"
+                   Visibility="{Binding Path=IsRomajiShown, Converter={StaticResource VisibilityConverter}, UpdateSourceTrigger=PropertyChanged}"
+                   Style="{StaticResource TextBlockStandard}">
+        </TextBlock>
+
+        <TextBlock Grid.Row="5"
+                   Grid.Column="1"
+                   Text="{Binding Path=ActiveKanji.KunHira, UpdateSourceTrigger=PropertyChanged, StringFormat=Kun: {0}}"
+                   Visibility="{Binding Path=IsKanaShown, Converter={StaticResource VisibilityConverter}, UpdateSourceTrigger=PropertyChanged}"
+                   Style="{StaticResource TextBlockStandard}">
+        </TextBlock>
+
+        <TextBlock Grid.Row="5"
+                   Grid.Column="1"
+                   Text="{Binding Path=ActiveKanji.KunRomaji, UpdateSourceTrigger=PropertyChanged, StringFormat=Kun: {0}}"
+                   Visibility="{Binding Path=IsRomajiShown, Converter={StaticResource VisibilityConverter}, UpdateSourceTrigger=PropertyChanged}"
+                   Style="{StaticResource TextBlockStandard}">
+        </TextBlock>
+
+        <TextBlock Grid.Row="3"
+                   Grid.Column="2"
+                   Text="{Binding Path=Time, UpdateSourceTrigger=PropertyChanged, StringFormat=Time: {0}}"
+                   Style="{StaticResource TextBlockStandard}"
+                   Visibility="{Binding Path=IsRanked, Converter={StaticResource VisibilityConverter}, UpdateSourceTrigger=PropertyChanged}">
+        </TextBlock>
+
+        <TextBlock Grid.Row="4"
+                   Grid.Column="2"
+                   Text="{Binding Path=Points, UpdateSourceTrigger=PropertyChanged, StringFormat=Points: {0}}"
+                   Margin="5,5,5,20"
+                   Style="{StaticResource TextBlockStandard}"
+                   Visibility="{Binding Path=IsRanked, Converter={StaticResource VisibilityConverter}, UpdateSourceTrigger=PropertyChanged}">
+        </TextBlock>
+
+        <TextBlock Grid.Row="5"
+                   Grid.Column="2"
+                   Text="{Binding Path=RightCounter, UpdateSourceTrigger=PropertyChanged, StringFormat=Correct: {0}}"
+                   Style="{StaticResource TextBlockStandard}">
+        </TextBlock>
+
+        <TextBlock Grid.Row="6"
+                   Grid.Column="2"
+                   Text="{Binding Path=WrongCounter, UpdateSourceTrigger=PropertyChanged, StringFormat=Wrong: {0}}"
+                   Style="{StaticResource TextBlockStandard}">
+        </TextBlock>
+
+        <TextBox x:Name="InputBox"
+                 Grid.Row="6"
+                 Grid.Column="1"
+                 Width="150"
+                 Height="30"
+                 Margin="5"
+                 FontSize="16"
+                 FontWeight="DemiBold" 
+                 MaxLength="10" 
+                 TextAlignment="Center"
+                 VerticalContentAlignment="Center"
+                 CharacterCasing="Upper"
+                 Text="{Binding Path=UserInput, UpdateSourceTrigger=PropertyChanged}">
+        </TextBox>
+
+        <Button Grid.Row="7"
+                Grid.Column="2"
+                Content="Next"
+                Style="{StaticResource ButtonStandard}"
+                IsCancel="True"
+                Click="Next_OnClick">
+        </Button>
+
+        <Button Grid.Row="7"
+                Grid.Column="1"
+                Content="Check"
+                Style="{StaticResource ButtonStandard}"
+                IsDefault="True"
+                Click="Check_OnClick">
+        </Button>
+
+        <GroupBox Grid.Row="2"
+                  Grid.Column="0"
+                  Grid.RowSpan="6"
+                  Header="Options"
+                  Margin="10"
+                  VerticalAlignment="Bottom">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <RadioButton Grid.Row="0"
+                             Grid.Column="0"
+                             Content="Kana"
+                             GroupName="Kana"
+                             Style="{StaticResource RadioStandard}"
+                             Margin="10,10,10,4"
+                             IsChecked="{Binding Path=IsKana, UpdateSourceTrigger=PropertyChanged}">
+                </RadioButton>
+
+                <RadioButton Grid.Row="1"
+                             Grid.Column="0"
+                             Content="Romaji"
+                             GroupName="Kana"
+                             Style="{StaticResource RadioStandard}"
+                             IsChecked="{Binding Path=IsRomaji, UpdateSourceTrigger=PropertyChanged}">
+                </RadioButton>
+
+                <RadioButton Grid.Row="2"
+                             Grid.Column="0"
+                             Content="Order"
+                             GroupName="Order"
+                             Style="{StaticResource RadioStandard}" 
+                             Margin="10,10,10,4"
+                             IsChecked="{Binding Path=IsOrder, UpdateSourceTrigger=PropertyChanged}">
+                </RadioButton>
+
+                <RadioButton Grid.Row="3"
+                             Grid.Column="0"
+                             Content="Random"
+                             GroupName="Order"
+                             Style="{StaticResource RadioStandard}" 
+                             Margin="10,4,10,10"
+                             IsChecked="{Binding Path=IsRandom, UpdateSourceTrigger=PropertyChanged}">
+                </RadioButton>
+
+                <CheckBox Grid.Row="4"
+                          Grid.Column="0"
+                          Content="Points"
+                          Style="{StaticResource RadioStandard}"
+                          IsChecked="{Binding Path=IsRanked, UpdateSourceTrigger=PropertyChanged}">
+                </CheckBox>
+
+                <CheckBox Grid.Row="5"
+                          Grid.Column="0"
+                          Content="Read Only"
+                          Style="{StaticResource RadioStandard}"
+                          IsChecked="{Binding Path=IsReadOnly, UpdateSourceTrigger=PropertyChanged}">
+                </CheckBox>
+
+                <CheckBox Grid.Row="6"
+                          Grid.Column="0"
+                          Content="Invisible"
+                          Style="{StaticResource RadioStandard}"
+                          Margin="10,4,10,10"
+                          IsChecked="{Binding Path=IsInvisible, UpdateSourceTrigger=PropertyChanged}">
+                </CheckBox>
+            </Grid>
+        </GroupBox>
+
+    </Grid>
+</Window>
